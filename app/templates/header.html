@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="{{ url_for('home') }}">
+      <img src="{{ url_for('static', filename='icons/house.svg') }}" width="24" height="24" class="me-2"
+        style="filter: brightness(0) invert(1);" alt="house">
+      Project 1
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto ms-lg-4 gap-2">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('create_property') }}">New Property</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('list_properties') }}">Properties</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('about') }}">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

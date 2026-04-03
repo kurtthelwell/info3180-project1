@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>
+  /* Home styles */
+  .hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("{{ url_for('static', filename='images/hero_bg.png') }}");
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    color: #fff;
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    color: #0d6efd;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+</style>
+{% endblock %}
+
+{% block main %}
+<div class="row mb-5 mt-3">
+  <div class="col-12">
+    <div class="hero-banner p-5 text-center text-md-start">
+      <div class="glass-card p-5 max-w-lg shadow-lg col-md-8 col-lg-6">
+        <h1 class="display-4 fw-bold mb-3">Real Estate, for EVERYONE</h1>
+        <p class="lead mb-4 fw-light">Discover the finest curation of prime properties. Buy, rent, or sell with
+          extraordinary ease and sophistication.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="{{ url_for('list_properties') }}"
+            class="btn btn-primary btn-lg px-4 me-md-2 fw-bold text-white shadow">
+            Explore Properties
+            <img src="{{ url_for('static', filename='icons/arrow-right.svg') }}" width="16" height="16" class="ms-2"
+              style="filter: brightness(0) invert(1);" alt="arrow-right">
+          </a>
+          <a href="{{ url_for('create_property') }}" class="btn btn-outline-light btn-lg px-4 fw-bold shadow">List a
+            Property</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 py-5 mb-5">
+  <div class="col-12 text-center mb-4">
+    <h2 class="fw-bold">Listing Properties Since Yesterday</h2>
+    <p class="text-muted">Find your dream home today</p>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card feature-card h-100 p-4 text-center">
+      <div class="card-body">
+        <div class="feature-icon">
+          <img src="{{ url_for('static', filename='icons/house-heart-fill.svg') }}" width="48" height="48"
+            style="filter: invert(36%) sepia(85%) saturate(3023%) hue-rotate(204deg) brightness(101%) contrast(97%);"
+            alt="house">
+        </div>
+        <h4 class="fw-bold mb-3">User Submitted Listings</h4>
+        <p class="text-muted">A selection of homes right here in Jamaica.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card feature-card h-100 p-4 text-center">
+      <div class="card-body">
+        <div class="feature-icon">
+          <img src="{{ url_for('static', filename='icons/shield-check.svg') }}" width="48" height="48"
+            style="filter: invert(36%) sepia(85%) saturate(3023%) hue-rotate(204deg) brightness(101%) contrast(97%);"
+            alt="shield">
+        </div>
+        <h4 class="fw-bold mb-3">Secure Transactions</h4>
+        <p class="text-muted">A dedicated trusted platform ensuring 100% peace of mind in every deal.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card feature-card h-100 p-4 text-center">
+      <div class="card-body">
+        <div class="feature-icon">
+          <img src="{{ url_for('static', filename='icons/clock-history.svg') }}" width="48" height="48"
+            style="filter: invert(36%) sepia(85%) saturate(3023%) hue-rotate(204deg) brightness(101%) contrast(97%);"
+            alt="clock">
+        </div>
+        <h4 class="fw-bold mb-3">Professional Service</h4>
+        <p class="text-muted">Directly connected to world-class leading real estate agents.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Properties — Project 1{% endblock %}
+
+{% block main %}
+<div class="mt-4">
+    <h2 class="fw-bold mb-4">Properties</h2>
+
+    {% if properties %}
+    <div class="row">
+        {% for prop in properties %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-0 property-card overflow-hidden" style="border-radius: 8px;">
+                <div class="position-relative" style="height: 220px; overflow: hidden;">
+                    <img src="{{ url_for('static', filename='uploads/' + prop.photo) }}" class="w-100 h-100"
+                        style="object-fit: cover;" alt="{{ prop.title }}">
+                </div>
+                <div class="card-body bg-white p-4">
+                    <h6 class="card-title fw-bold mb-2 text-dark">{{ prop.title }}</h6>
+                    <p class="card-text text-muted small mb-3">
+                        <img src="{{ url_for('static', filename='icons/geo-alt.svg') }}" width="14" height="14"
+                            class="me-1 mb-1" style="opacity: 0.6;" alt="geo-alt">
+                        {{ prop.location }}
+                    </p>
+                    <span class="badge rounded-pill bg-primary fw-normal px-3 py-2 text-white small"
+                        style="background-color: #3b82f6 !important;">
+                        {{ prop.price|currency }}
+                    </span>
+                </div>
+                <a href="{{ url_for('view_property', propertyid=prop.id) }}"
+                    class="btn btn-primary w-100 rounded-0 py-2 border-0 fw-bold"
+                    style="background-color: #00c49a; font-size: 0.9rem;">View Property</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info border-0 shadow-sm mt-4">
+        No properties have been added yet. <a href="{{ url_for('create_property') }}" class="alert-link">Add a
+            property</a> to get started.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
